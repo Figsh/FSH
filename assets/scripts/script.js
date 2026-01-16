@@ -1,6 +1,6 @@
 const imgBox  =document.querySelectorAll(".slide-img img");
 
-const imgUrls=["assets/images/slide1.png", "assets/images/slide2.png", "assets/images/slide3.png"];
+const imgUrls=["/chickens/assets/images/slide1.png", "/chickens/assets/images/slide2.png", "/chickens/assets/images/slide3.png"];
 
 imgBox.forEach(img=>{
   setInterval(()=>{
