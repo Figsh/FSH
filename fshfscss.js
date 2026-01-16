@@ -1,4 +1,4 @@
-import { exec } from "https://cdn.jsdelivr.net/npm/fscss@1.1.6/e/xfscss.min.js";
+import { exec } from "https://cdn.jsdelivr.net/npm/fscss@1.1.11/e/xfscss.min.js";
 
   const DEBUG = true;
 
@@ -7,11 +7,11 @@ import { exec } from "https://cdn.jsdelivr.net/npm/fscss@1.1.6/e/xfscss.min.js";
       type,
       content,
       onSuccess: (styleElement) => {
-        DEBUG && console.log("✅ FSCSS applied:", styleElement);
+        DEBUG && console.log("FSCSS applied:", styleElement);
       },
       onError: (error) => {
-        console.error("❌ Failed to apply FSCSS:", error);
-        alert("⚠️ Could not load styles. Please try again later.");
+        console.error("Failed to apply FSCSS:", error);
+        alert("Could not load styles. Please try again later.");
       }
     });
   }
