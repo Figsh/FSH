@@ -58,7 +58,7 @@ body{
 }
 
 .page-id .icon{
-  background-image: url(/assets/images/icon.png);
+  background-image: url(/chickens/assets/images/icon.png);
   background-size: contain;
   background-position: center;
   max-width: 3em;
@@ -131,7 +131,7 @@ max-width: 2.3em;
 }
 
 .hero .big-image{
-  background-image: url(/assets/images/hero.png);
+  background-image: url(/chickens/assets/images/hero.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
