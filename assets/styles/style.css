@@ -74,7 +74,7 @@ body {
     display: inline-block;
     width: max(60px, 60px);
     height: max(68px, 68px);
-    background-image: url(/assets/images/name.j.png);
+    background-image: url(/chickens/assets/images/name.j.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -132,7 +132,7 @@ body {
 .hero:after{
     content: " ";
     position: absolute;
-    background-image: url(/assets/images/hero.bg.jpeg);
+    background-image: url(/chickens/assets/images/hero.bg.jpeg);
     background-size: cover;
     background-position: center;
     top: -86px;
