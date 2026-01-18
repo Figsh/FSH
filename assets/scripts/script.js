@@ -1,35 +1,79 @@
-const imgBox  =document.querySelectorAll(".slide-img img");
 
-const imgUrls=["/chickens/assets/images/slide1.png", "/chickens/assets/images/slide2.png", "/chickens/assets/images/slide3.png"];
+const topMenu =document.querySelector(".top-menu");
+const cartMenu = document.querySelector(".cart-container");
+const cartTopBtn = document.querySelector(".top-cart-btn");
+const proCards = document.querySelectorAll(".product-grid .product-card");
 
-imgBox.forEach(img=>{
-  setInterval(()=>{
-    const selectedImg = imgUrls[Math.floor(Math.random() * imgUrls.length)];
-    img.style.display="hidden";
-    img.src=selectedImg;
-    img.style.display="auto";
-  },4000)
+window.addEventListener("scroll", e=>{
+  if(window.pageYOffset>20){
+    if(!topMenu.classList.contains("blur")){
+      topMenu.classList.add("blur");
+    }
+  }
+  else {
+    if (topMenu.classList.contains("blur")) {
+  topMenu.classList.remove("blur");
+}
+  }
+})
+
+cartTopBtn.addEventListener("click", e=>{
+  
+  cartMenu.classList.toggle("show");
+  
+  if(cartMenu.classList.contains("show")){
+    cartTopBtn.querySelector("i").classList.replace("fa-shopping-cart", "fa-times");
+  }
+  else{
+    cartTopBtn.querySelector("i").classList.replace("fa-times", "fa-shopping-cart");
+
+  }
+  
 });
 
-const observeOpac = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('scale');
+
+proCards.forEach(card=>{
+  const hideBtn = card.querySelector(".card-cancel");
+  hideBtn.addEventListener("click", e=>{
+    const parCard=hideBtn.parentElement;
+    if(parCard.classList.contains('expanded')){
+      parCard.classList.remove("expanded");
     }
-    else {
-      if (entry.target.classList.contains("scale")) entry.target.classList.remove("scale");
+  })
+  cardDes = card.querySelector(".product-details");
+  const parDetail=cardDes.parentElement;
+  
+  cardDes.addEventListener("click", ()=>{
+    proCards.forEach(c=>{
+    if (c.classList.contains("expanded")) {
+  c.classList.remove("expanded");
+}});
+    if(!parDetail.classList.contains("expanded")){
+      parDetail.classList.add("expanded");
+      
     }
-  });
-}, { threshold: 0.2 });
+  })
+  
+  cardImg = card.querySelector(".product-image");
+const parImg = cardImg.parentElement;
 
-const secImg = document.querySelectorAll("section img");
+cardImg.addEventListener("click", () => {
+proCards.forEach(c=>{
+    if (c.classList.contains("expanded")) {
+  c.classList.remove("expanded");
+}});
+  if (!parImg.classList.contains("expanded")) {
+    parImg.classList.add("expanded");
+    
+  }
+})
+})
 
-secImg.forEach(img=>observeOpac.observe(img));
 
-const searchForm=document.querySelector("form.search-area");
+const searchForm = document.querySelector("form.search-area");
 
-searchForm.querySelector("input").addEventListener("invalid", function(){this.setCustomValidity("Enter To Search")});
+searchForm.querySelector("input").addEventListener("invalid", function() { this.setCustomValidity("Enter To Search") });
 
-searchForm.querySelector("input").addEventListener("input", function(){this.setCustomValidity("")});
+searchForm.querySelector("input").addEventListener("input", function() { this.setCustomValidity("") });
 
 document.querySelector("footer .footer-bottom").innerHTML = `<p>&copy; ${new Date().getFullYear()} Joyof chickens. All Rights Reserved.</p>`;
